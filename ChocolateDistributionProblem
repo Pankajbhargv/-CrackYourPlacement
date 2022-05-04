@@ -1,0 +1,26 @@
+//Chocolate Distribution Problem
+This is a very tricky problem and here I have learnt a new concept.
+
+Algorithm:
+First sort the array;
+Then take subarray of size m(no of students);
+find the difference between the last and first element of the subarray;
+Return the minimum differnce;
+
+Code:
+Class Solution{
+public:
+int ChocolateDis(vector<int> &v){
+sort(v.begin(),v.end());
+int min_diff=INT_MAX;
+//after sorting the array start a for loop and find the differnece between last and first element of the subarrray;
+for(int i=0;i+m-1<v.size();i++){
+int diff=a[i+m-1]-a[i];
+if(diff<min_diff){
+min_diff=diff;
+}
+}
+return min_diff;
+}
+}
+
