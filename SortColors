@@ -1,0 +1,66 @@
+// Sort Colors
+In this quesiton we have to sort the array of 0s 1s and 2s. 
+This can be done in many ways. but efficient way is given below
+
+Algorithm:
+Count the zeroes, ones and twos
+Then insert the values according to the count;
+
+class Solution {
+public:
+    
+    void sortColors(vector<int>& nums) {
+     int i=0,j=nums.size()-1;
+        while(i<j){
+            if(nums[j]==0){
+                swap(nums[j],nums[i]);
+                i++;
+                j--;
+            }
+            else if(nums[j]!=0){
+                j--;
+            }
+        }
+        i=0;
+            while(nums[i]==0 && i!=nums.size()){
+                i++;
+            }
+        
+        j=nums.size()-1;
+        while(i<j){
+            if(nums[j]==1){
+                swap(nums[j],nums[i]);
+                i++;
+                j--;
+            }
+            else if(nums[j]!=1){
+                j--;
+            }
+        }
+        
+        
+       
+    }
+};
+This above code is giving run time error;
+So efficient code is given below:
+
+Algorithm;
+Take a array and count the zeros, ones and twos;
+then insert 0 1 and 2 by decrementing the values from the array declared;
+
+ void sortColors(vector<int>& nums) {
+        
+        vector<int> v(3);
+        for(int i=0;i<nums.size();i++){
+            v[nums[i]]++;
+        }
+        int j=0;
+        for(int i=0;i<3;i++){
+            while(v[i]!=0){
+                nums[j++]=i;
+                v[i]--;
+            }
+        }
+        }
+}
