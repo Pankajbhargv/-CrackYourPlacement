@@ -1,0 +1,22 @@
+//Best time to Sell and Buy Stock
+In this question hume minimum element nikalana hai or fir minimum element ke index se last tak maximum difference return karna hai:
+
+Algorithm:
+First find the minimum element.
+From index of minimum element to last find the maximum differnce;
+
+Code:
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        int j=0;
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]!=0){
+                nums[j++]=nums[i];
+            }
+        }
+        for(;j<nums.size();j++){
+            nums[j]=0;
+        }
+    }
+};
