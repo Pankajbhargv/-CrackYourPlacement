@@ -1,0 +1,26 @@
+//Move Zeroes
+In this quesiton there is a pattern which is described below
+Jab bhi hume relative order maintain krna ho, ya elements ko shift krna ho without unka order disturb kre to hum ek variable lenge jo pehle element ko point krega.
+Fir condition ke according hum use aage move krwayenge.
+
+Algorithm:
+Take a varible and initialise with 0 i.e. j=0;
+Initiate a for loop and check if any element is non zero
+if non zero then shift that element to nums[j] and increment the j;
+At the last from j to last element insert the zero;
+
+Code:
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        int j=0;
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]!=0){
+                nums[j++]=nums[i];
+            }
+        }
+        for(;j<nums.size();j++){
+            nums[j]=0;
+        }
+    }
+};
