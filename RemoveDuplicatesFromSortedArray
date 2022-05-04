@@ -1,0 +1,24 @@
+//Remove Duplicate from sorted array
+This question was quite tricky but the logic was simple
+In this question we have used two pointer.
+
+Algorithm;
+First start the for loop from 1
+Then start a variable i.e. id=1;
+so that when the two elements are different then the element can be copied in the nums[id];
+
+Code is given below:
+class Solution {
+public:
+    int removeDuplicates(vector<int>& v) {
+        int n=v.size(); //size of array
+        int id=1; //pointer pointing to second element of the array
+        for(int i=1;i<n;i++){
+        //we are checking that the current and previous elements are equal or not. If not equal then copy the element in nums[id]
+            if(v[i]!=v[i-1]){
+                v[id++]=v[i];
+            }
+        }
+        return id;
+    }
+};
