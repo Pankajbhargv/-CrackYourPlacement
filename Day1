@@ -2,6 +2,12 @@
 We can solve this questions using map also
 Insertion in map consumes o(logn) T.C for one element;
 We can also take vector but it will consume more space so it can not be done in constant extra space;
+
+Algorithm:
+Firstly sort the array
+then use the two pointer and check that nums[i+1]==nums[i];
+if yes then it is the duplicate number otherwise not;
+
 class Solution {
 public:
     int findDuplicate(vector<int>& nums) {
