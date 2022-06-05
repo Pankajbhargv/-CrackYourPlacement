@@ -1,0 +1,39 @@
+In this question a new concept I have learnt.
+If talking about subarray and sum of subarray is divisble by k or not then try to play with the remainder of the cummulative sum
+
+Algorithm
+1. Initialise the remainder with 0;
+2. In hashing maintain the frequency of remainder.
+3. Then add the current element in the sum and find its remainder.
+4. If this remainder is present in the hashed table then add the frequency in the answer.
+5. If remainder not present in the hashed table then add it to the table by incrementing its frequency to one.
+
+Code is given Below
+class Solution {
+public:
+    int subarraysDivByK(vector<int>& nums, int k) {
+      
+      //creating hash table for maintaining the frequency of remainder
+        unordered_map<int, int> mapp;
+        int ans=0;
+        //the frequency of remainder 0 is 1 in the starting
+        mapp[0]=1;
+        int sum=0;
+        for(int i=0;i<nums.size();i++){
+            sum=sum+nums[i];
+            //checking remainder of sum
+            int rem=sum%k;
+            //it is a rule of remainder that if it is less than zero than divisor is added to it.
+            if(rem<0) rem+=k;
+            //if remainder calculated is present in the map then its frequency should be added in the answer.
+            if(mapp.find(rem)!=mapp.end()){
+                ans=ans+mapp[rem];
+            }
+            //if not found in the map then its frequency should be incremented to 1
+            mapp[rem]++;
+            
+        }
+        return ans;
+        
+    }
+};
